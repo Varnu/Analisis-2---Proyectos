@@ -12,6 +12,7 @@ package procesoVenta;
 public class Producto {
     private String id;
     private String nombre;
+    private int val;
 
     public String getId() {
         return id;
@@ -27,6 +28,14 @@ public class Producto {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public int getVal() {
+        return val;
+    }
+
+    public void setVal(int val) {
+        this.val = val;
     }
     
 }
