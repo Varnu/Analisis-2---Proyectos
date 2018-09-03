@@ -5,6 +5,9 @@
  */
 package procesoVenta;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author juanf.gallo
@@ -13,6 +16,7 @@ public class Venta {
     private int id;
     private String fechaVenta;
     private double total;
+    
 
     public Venta(int id, String fechaVenta, double total) {
         this.id = id;
@@ -46,6 +50,21 @@ public class Venta {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+    
+    public Object obtenerLista(){
+        //obtener un tetorno de lista
+        List<Object> list= new ArrayList<Object>();
+        
+        return list;
+    }
+    
+    public void anadirLinea(){
+        
+    }
+    
+    public void eliminarLinea(){
+        
     }
     
     
