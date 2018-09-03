@@ -10,8 +10,14 @@ package procesoVenta;
  * @author alejandrom.montoya
  */
 public class Linea {
+    
     private int cantidad;
     private Producto producto;
+    
+    public Linea(int cantidad, Producto producto) {
+        this.cantidad = cantidad;
+        this.producto = producto;
+    }
 
     public int getCantidad() {
         return cantidad;
@@ -28,5 +34,7 @@ public class Linea {
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
+
+    
     
 }
