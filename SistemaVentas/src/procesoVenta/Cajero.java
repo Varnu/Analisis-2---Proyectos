@@ -9,6 +9,6 @@ package procesoVenta;
  *
  * @author Study-Development
  */
-public class Cliente extends Persona {
+public class Cajero extends Persona{
     
 }
