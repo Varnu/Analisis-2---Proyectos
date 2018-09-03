@@ -14,6 +14,12 @@ public class Producto {
     private String nombre;
     private int val;
 
+    public Producto(String id, String nombre, int val) {
+        this.id = id;
+        this.nombre = nombre;
+        this.val = val;
+    }
+
     public String getId() {
         return id;
     }
