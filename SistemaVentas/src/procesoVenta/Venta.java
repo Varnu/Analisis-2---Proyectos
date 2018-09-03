@@ -16,12 +16,14 @@ public class Venta {
     private int id;
     private String fechaVenta;
     private double total;
+    private List<Linea> list;
     
 
     public Venta(int id, String fechaVenta, double total) {
         this.id = id;
         this.fechaVenta = fechaVenta;
         this.total = total;
+        this.list= new ArrayList<Linea>();
     }
     
     public Venta(){
@@ -52,15 +54,15 @@ public class Venta {
         this.total = total;
     }
     
-    public Object obtenerLista(){
+    public List<Linea> obtenerLista(){
         //obtener un tetorno de lista
-        List<Object> list= new ArrayList<Object>();
         
-        return list;
+        return this.list;
     }
     
-    public void anadirLinea(){
-        
+    public void anadirLinea(Producto producto, int cantidad){
+        Linea nueva = new Linea(producto, cantidad);
+       this.list.add(nueva);
     }
     
     public void eliminarLinea(){
