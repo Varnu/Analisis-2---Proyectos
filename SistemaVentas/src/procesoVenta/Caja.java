@@ -5,11 +5,14 @@
  */
 package procesoVenta;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Study-Development
  */
-public class Cliente extends Persona {
-    int totalCompras;
+public class Caja {
+    List<Venta>ventas = new ArrayList<Venta>();
     
 }

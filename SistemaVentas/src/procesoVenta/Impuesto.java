@@ -7,9 +7,8 @@ package procesoVenta;
 
 /**
  *
- * @author Study-Development
+ * @author alejandrom.montoya
  */
-public class Cliente extends Persona {
-    int totalCompras;
+public class Impuesto {
     
 }
