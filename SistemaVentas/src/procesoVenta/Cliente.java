@@ -10,5 +10,6 @@ package procesoVenta;
  * @author Study-Development
  */
 public class Cliente extends Persona {
+    int totalCompras;
     
 }

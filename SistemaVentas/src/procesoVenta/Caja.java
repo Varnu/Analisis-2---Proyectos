@@ -5,12 +5,14 @@
  */
 package procesoVenta;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Study-Development
  */
-public class Cajero extends Persona{
-    String turno;
-    Caja caja = new Caja();
+public class Caja {
+    List<Venta>ventas = new ArrayList<Venta>();
     
 }
