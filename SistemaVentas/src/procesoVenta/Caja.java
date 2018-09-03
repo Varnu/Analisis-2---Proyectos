@@ -14,5 +14,22 @@ import java.util.List;
  */
 public class Caja {
     List<Venta>ventas = new ArrayList<Venta>();
-    
+    int idVentaFinal;
+    public Caja(){
+        int idVentaFinal = -1;
+    }
+    public void crearVenta(){
+        Venta venta = new Venta();
+        ventas.add(venta);
+        idVentaFinal++;
+    }
+    public Venta consultarVenta(int id){
+        return ventas.get(id);
+    }
+    public Venta consultarUltimaVenta(){
+        if(idVentaFinal>=0){
+            return ventas.get(idVentaFinal);
+        }
+        return null;
+    }
 }
