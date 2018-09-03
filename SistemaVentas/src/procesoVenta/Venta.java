@@ -19,10 +19,10 @@ public class Venta {
     private List<Linea> list;
     
 
-    public Venta(int id, String fechaVenta, double total) {
+    public Venta(int id, String fechaVenta) {
         this.id = id;
         this.fechaVenta = fechaVenta;
-        this.total = total;
+        this.total = 0;
         this.list= new ArrayList<Linea>();
     }
     
