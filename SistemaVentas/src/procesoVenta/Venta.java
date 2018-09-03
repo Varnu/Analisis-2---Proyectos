@@ -60,8 +60,8 @@ public class Venta {
         return this.list;
     }
     
-    public void anadirLinea(Producto producto, int cantidad){
-        Linea nueva = new Linea(producto, cantidad);
+    public void anadirLinea(int cantidad, Producto producto){
+        Linea nueva = new Linea(cantidad, producto);
        this.list.add(nueva);
     }
     
