@@ -32,4 +32,7 @@ public class Caja {
         }
         return null;
     }
+    public void insertarDinero(){
+        
+    }
 }
