@@ -64,7 +64,8 @@ public class Venta {
         Linea nueva = new Linea(cantidad, producto);
         int cant = nueva.getCantidad();
         double valor = nueva.getProducto().getVal();
-        this.total = cant * valor;
+        Impuesto impto = new Impuesto();
+        this.total = cant * valor + impto.calcularIva(nueva);
         this.list.add(nueva);
     }
 
