@@ -13,21 +13,21 @@ import java.util.List;
  * @author juanf.gallo
  */
 public class Venta {
+
     private int id;
     private String fechaVenta;
     private double total;
     private List<Linea> list;
-    
 
     public Venta(int id, String fechaVenta) {
         this.id = id;
         this.fechaVenta = fechaVenta;
         this.total = 0;
-        this.list= new ArrayList<Linea>();
+        this.list = new ArrayList<Linea>();
     }
-    
-    public Venta(){
-        
+
+    public Venta() {
+
     }
 
     public int getId() {
@@ -53,21 +53,23 @@ public class Venta {
     public void setTotal(double total) {
         this.total = total;
     }
-    
-    public List<Linea> obtenerLista(){
+
+    public List<Linea> obtenerLista() {
         //obtener un tetorno de lista
-        
+
         return this.list;
     }
-    
-    public void anadirLinea(int cantidad, Producto producto){
+
+    public void anadirLinea(int cantidad, Producto producto) {
         Linea nueva = new Linea(cantidad, producto);
-       this.list.add(nueva);
+        int cant = nueva.getCantidad();
+        double valor = nueva.getProducto().getVal();
+        this.total = cant * valor;
+        this.list.add(nueva);
     }
-    
-    public void eliminarLinea(){
-        
+
+    public void eliminarLinea(int linea) {
+        this.list.remove(linea);
     }
-    
-    
+
 }
