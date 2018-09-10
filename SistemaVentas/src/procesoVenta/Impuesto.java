@@ -11,4 +11,8 @@ package procesoVenta;
  */
 public class Impuesto {
     
+    public double calcularIva(Linea linea){
+        int subtotal=linea.getCantidad()*linea.getProducto().getVal();
+        return subtotal*0.19;
+    }
 }
