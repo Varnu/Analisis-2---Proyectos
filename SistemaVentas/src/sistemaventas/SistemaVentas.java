@@ -5,17 +5,42 @@
  */
 package sistemaventas;
 
+import java.util.ArrayList;
+import procesoVenta.Producto;
+import procesoVenta.Venta;
+import view.JOP;
+
 /**
  *
- * @author Study-Development
+ * @author alejandrom.montoya
  */
 public class SistemaVentas {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    JOP visual = new JOP();
+    Venta venta;
+    private ArrayList<Producto> CrearProductos() {
+        ArrayList<Producto> productos=new ArrayList<>();
+        productos.add(new Producto("1", "leche", 1900));
+        productos.add(new Producto("2", "Arroz", 1300));
+        productos.add(new Producto("3", "huevo", 300));
+        productos.add(new Producto("4", "Arepa", 1500));
+        productos.add(new Producto("5", "pan", 1000));
+        return productos;
     }
-    
+    public void iniciarVenta(){
+        venta = new Venta();
+        anadirLineaProducto();
+    }
+    public void anadirLineaProducto(){
+        ArrayList<Producto> productos = CrearProductos();
+        ArrayList<String> nombreProductos = new ArrayList<>();
+        for(int i = 0;i<productos.size();i++){
+            nombreProductos.add(i+" "+productos.get(i).getNombre());
+        }
+        String mensajeInterno = "Catalogo de Productos";
+        String menWindow = "Sistema de Ventas";
+        String producto = visual.comboString(mensajeInterno, menWindow, nombreProductos);
+        int cantidad = visual.leerInt("Ingrese cantidad");
+        int productoIndice = Integer.parseInt(String.valueOf(producto.charAt(0)));
+        venta.anadirLinea(cantidad, productos.get(productoIndice));
+    }
 }

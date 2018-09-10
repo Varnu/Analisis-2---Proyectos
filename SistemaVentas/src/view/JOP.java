@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package practicaavl;
+package view;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
  *
@@ -63,7 +64,12 @@ public class JOP {
         return lector.charAt(0);
     }
     
-    public String comboString(String menInterno, String menWindow,String[] opciones){
+    public String comboString(String menInterno, String menWindow,ArrayList<String> options){
+        int lenght=options.size();
+        String opciones[]=new String[lenght];
+        for (int i=0; i< options.size(); i++){
+            opciones[i]=options.get(i);
+        }
         Object lectura=JOptionPane.showInputDialog(null,menInterno,menWindow,JOptionPane.QUESTION_MESSAGE,null,opciones,"seleccione");
         return (String)lectura;
     } //usa como prametro un arreglo de strings para crear una lista despegable de opciones
