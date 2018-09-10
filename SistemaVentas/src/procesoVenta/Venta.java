@@ -19,6 +19,7 @@ public class Venta {
     private double total;
     private List<Linea> list;
 
+
     public Venta(int id, String fechaVenta) {
         this.id = id;
         this.fechaVenta = fechaVenta;

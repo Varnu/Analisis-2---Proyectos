@@ -40,8 +40,8 @@ public class Factura {
             cant = list.get(i).getCantidad();
             val = current.getVal();
             p = p + " " + current.getNombre() + "\t" + 
-                    " Cantidad: "  + cant + "\t"
-                    + "Valor: " + cant*val + "\n";
+                    " \nCantidad: "  + cant + "\t"
+                    + "\nValor: " + cant*val + "\n";
         }
         s = "Su compra fue efectuda el dia:" + vta.getFechaVenta() + "\n"
                 + "Sus productos : " + p + "\n"

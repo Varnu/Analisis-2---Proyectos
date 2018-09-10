@@ -20,7 +20,7 @@ public class SistemaVentasMain {
      */
     public static void main(String[] args) {
         SistemaVentas sistema = new SistemaVentas();
-        sistema.iniciarVenta();
+        sistema.iniciarCaja();
         
     }
     

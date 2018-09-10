@@ -6,6 +6,9 @@
 package sistemaventas;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import procesoVenta.Caja;
+import procesoVenta.Factura;
 import procesoVenta.Producto;
 import procesoVenta.Venta;
 import view.JOP;
@@ -16,7 +19,9 @@ import view.JOP;
  */
 public class SistemaVentas {
     JOP visual = new JOP();
-    Venta venta;
+    Caja caja;
+    int idVentas = 0;
+    
     private ArrayList<Producto> CrearProductos() {
         ArrayList<Producto> productos=new ArrayList<>();
         productos.add(new Producto("1", "leche", 1900));
@@ -26,11 +31,20 @@ public class SistemaVentas {
         productos.add(new Producto("5", "pan", 1000));
         return productos;
     }
-    public void iniciarVenta(){
-        venta = new Venta();
-        anadirLineaProducto();
+    public void iniciarCaja(){
+       caja = new Caja();
+       crearVenta();
+       
     }
-    public void anadirLineaProducto(){
+    public void crearVenta(){
+        Calendar c = Calendar.getInstance();
+        String dia = Integer.toString(c.get(Calendar.DATE));
+        String mes = Integer.toString(c.get(Calendar.MONTH));
+        String annio = Integer.toString(c.get(Calendar.YEAR));
+        Venta venta = new Venta(idVentas,  dia+"/"+mes+"/"+annio);
+        anadirLineaProducto(venta);
+    }
+    public void anadirLineaProducto(Venta venta){
         ArrayList<Producto> productos = CrearProductos();
         ArrayList<String> nombreProductos = new ArrayList<>();
         for(int i = 0;i<productos.size();i++){
@@ -42,5 +56,22 @@ public class SistemaVentas {
         int cantidad = visual.leerInt("Ingrese cantidad");
         int productoIndice = Integer.parseInt(String.valueOf(producto.charAt(0)));
         venta.anadirLinea(cantidad, productos.get(productoIndice));
+        continuarRegistro(venta);
+    }
+    public void continuarRegistro(Venta venta){
+        int desicion = visual.opcionYN("¿Desea continuar añadiendo productos?", "Sistema de Ventas");
+        if(desicion == 0){
+            anadirLineaProducto(venta);
+        }else if(desicion == 1){
+            calcularTotal(venta);
+        }
+    }
+    public void calcularTotal(Venta venta){
+        Factura fact = new Factura(venta);
+        
+        int desicion=visual.opcionYN(fact.imprimeRecibo()+"\n ¿Desea iniciar otra venta?", "Sistema de Ventas");
+        if(desicion == 0){
+            anadirLineaProducto(venta);
+        }
     }
 }
